@@ -3,7 +3,7 @@
 
 # Run:
 # $ docker build -t omd-grafana .
-# $ docker run -it --rm -p 80:80 -p 443:443 -h omd omd-grafana
+# $ docker run -it --rm -p 80:80 -p 443:443 -h omd griesbacher/omd-grafana
 
 # browser: 127.0.0.1/default [windows: https://docs.docker.com/engine/installation/windows/#container-port-redirection]
 # user: omdadmin
@@ -34,5 +34,7 @@ RUN sed -i -e s/host-pnp/host-perf/g /omd/sites/default/etc/icinga2/conf.d/hosts
 EXPOSE 80
 EXPOSE 443
 
+RUN sed -i 's/\r//' /entrypoint.sh #Just for Windowssystems...
 COPY ./entrypoint.sh /entrypoint.sh
+
 ENTRYPOINT ["/entrypoint.sh"]
