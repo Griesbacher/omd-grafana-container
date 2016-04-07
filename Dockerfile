@@ -18,7 +18,7 @@ RUN gpg --armor --export F8C1CA08A57B9ED7 | apt-key add -
 RUN echo 'deb http://labs.consol.de/repo/testing/debian jessie main' >> /etc/apt/sources.list
 
 ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update && apt-get upgrade -y && apt-get install -y omd-labs-edition-daily net-tools iputils-ping
+RUN apt-get update && apt-get install -y omd-labs-edition-daily net-tools iputils-ping
 
 RUN omd create default
 RUN omd config default set TMPFS off
@@ -30,8 +30,7 @@ RUN omd config default set PNP4NAGIOS off
 RUN sed -i -e s/srv-pnp/srv-perf/g /omd/sites/default/etc/icinga2/conf.d/services.conf
 RUN sed -i -e s/host-pnp/host-perf/g /omd/sites/default/etc/icinga2/conf.d/hosts.conf
 
-EXPOSE 80
-EXPOSE 443
+EXPOSE 80 443
 
 COPY ./entrypoint.sh /entrypoint.sh
 RUN sed -i 's/\r//' /entrypoint.sh #Just for Windowssystems...
