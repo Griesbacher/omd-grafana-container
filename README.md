@@ -5,8 +5,8 @@ creates Image with newest OMD
 ``` bash
 $ git clone https://github.com/Griesbacher/docker-omd-grafana.git
 $ cd docker-omd-grafana
-$ docker build -t omd-grafana .
-$ docker run -it --rm -p 80:80 -p 443:443 -h omd omd-grafana
+$ docker build -t griesbacher/omd-grafana .
+$ docker run -it --rm -p 80:80 -p 443:443 -h omd griesbacher/omd-grafana
 ```
 ## Run
 if not build manually before, the latest Version from hub.docker.com can be used: https://hub.docker.com/r/griesbacher/omd-grafana/
