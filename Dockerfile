@@ -27,12 +27,14 @@ RUN omd config default set NAGFLUX on
 RUN omd config default set GRAFANA on
 RUN omd config default set CORE icinga2
 RUN omd config default set PNP4NAGIOS off
-RUN sed -i -e s/srv-pnp/srv-perf/g /omd/sites/default/etc/icinga2/conf.d/services.conf
 RUN sed -i -e s/host-pnp/host-perf/g /omd/sites/default/etc/icinga2/conf.d/hosts.conf
 
 EXPOSE 80 443
 
 COPY ./entrypoint.sh /entrypoint.sh
 RUN sed -i 's/\r//' /entrypoint.sh #Just for Windowssystems...
+
+COPY ./services.conf /omd/sites/default/etc/icinga2/conf.d/services.conf
+COPY ./commands.conf /omd/sites/default/etc/icinga2/conf.d/commands.conf
 
 ENTRYPOINT ["/entrypoint.sh"]
