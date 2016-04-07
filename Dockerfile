@@ -34,7 +34,7 @@ RUN sed -i -e s/host-pnp/host-perf/g /omd/sites/default/etc/icinga2/conf.d/hosts
 EXPOSE 80
 EXPOSE 443
 
-RUN sed -i 's/\r//' /entrypoint.sh #Just for Windowssystems...
 COPY ./entrypoint.sh /entrypoint.sh
+RUN sed -i 's/\r//' /entrypoint.sh #Just for Windowssystems...
 
 ENTRYPOINT ["/entrypoint.sh"]
