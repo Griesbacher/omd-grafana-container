@@ -29,7 +29,7 @@ RUN omd config default set CORE icinga2
 RUN omd config default set PNP4NAGIOS off
 RUN sed -i -e s/host-pnp/host-perf/g /omd/sites/default/etc/icinga2/conf.d/hosts.conf
 
-EXPOSE 80 443
+EXPOSE 80 443 8086
 
 COPY ./entrypoint.sh /entrypoint.sh
 RUN sed -i 's/\r//' /entrypoint.sh #Just for Windowssystems...
