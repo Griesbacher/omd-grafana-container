@@ -3,8 +3,8 @@ OMD with Grafana, InfluxDB, Nagflux and Histou configured
 ## Build & Run
 creates Image with newest OMD
 ``` bash
-$ git clone https://github.com/Griesbacher/docker-omd-grafana.git
-$ cd docker-omd-grafana
+$ git clone https://github.com/Griesbacher/omd-grafana-container.git
+$ cd omd-grafana-container
 $ docker build -t griesbacher/omd-grafana .
 $ docker run -it --rm -p 80:80 -p 443:443 -h omd griesbacher/omd-grafana
 ```
