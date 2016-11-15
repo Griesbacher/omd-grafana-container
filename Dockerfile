@@ -32,6 +32,7 @@ RUN sed -i -e s/host-pnp/host-perf/g /omd/sites/default/etc/icinga2/conf.d/hosts
 EXPOSE 80 443 8086
 
 COPY ./entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 RUN sed -i 's/\r//' /entrypoint.sh #Just for Windowssystems...
 
 COPY ./services.conf /omd/sites/default/etc/icinga2/conf.d/services.conf
